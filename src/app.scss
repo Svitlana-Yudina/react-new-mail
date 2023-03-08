@@ -1,3 +1,19 @@
-.App {
+@import './utils/mixins';
+
+.app {
+  margin: 0 auto;
+  max-width: 1170px;
   text-align: center;
+
+  &__menu {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    max-width: 768px;
+
+    @include onTablet {
+      justify-content: start;
+      gap: 20px;
+    }
+  }
 }
