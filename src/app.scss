@@ -2,16 +2,21 @@
 
 .app {
   margin: 0 auto;
+  padding: 40px 10px;
   max-width: 1170px;
-  text-align: center;
+
+  @include onTablet {
+    padding: 40px;
+  }
 
   &__menu {
-    margin: 0 auto;
+    margin: 0 auto 2em;
     display: flex;
     justify-content: space-around;
-    max-width: 768px;
+    max-width: 500px;
 
     @include onTablet {
+      margin: 0 0 2em;
       justify-content: start;
       gap: 20px;
     }

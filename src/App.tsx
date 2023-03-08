@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.scss';
+import { HomePage } from './components/HomePage';
 import { StartButton } from './components/StartButton';
 import { Tracking } from './components/Tracking';
 import { WarehouseList } from './components/WarehouseList';
@@ -13,11 +14,11 @@ export const App: React.FC = () => {
         <StartButton type={Actions.track} to="/track"/>
         <StartButton type={Actions.adresses} to="/adresses"/>
       </div>
+
       <div className="app__content">
         <Routes>
-          {/* <Route path="*" element={(<NotFoundPage />)} /> */}
           <Route path="/home" element={(<Navigate to="/" replace />)} />
-          {/* <Route path="/" element={(<HomePage />)} /> */}
+          <Route path="/" element={(<HomePage />)} />
           <Route path="/track" element={(<Tracking />)} />
           <Route path="/adresses" element={(<WarehouseList />)} />
         </Routes>
