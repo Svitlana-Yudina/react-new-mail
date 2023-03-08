@@ -27,5 +27,9 @@
     background-color: $prymaryActiveButton;
     transform: translate(2px, 2px);
     box-shadow: none;
+
+    &:hover {
+      background-color: $prymaryActiveButton;
+    }
   }
 }
