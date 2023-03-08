@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "./static/css/main.584d3615.css",
-    "main.js": "./static/js/main.95860ecd.js",
+    "main.css": "./static/css/main.2aa7b495.css",
+    "main.js": "./static/js/main.01bd26fe.js",
     "static/media/Nunito-Medium.ttf": "./static/media/Nunito-Medium.a7c01ee77faba77e24c1.ttf",
     "static/media/Nunito-Regular.ttf": "./static/media/Nunito-Regular.99a3b019e7727ac19479.ttf",
+    "static/media/question-mark-1019993_1280.webp": "./static/media/question-mark-1019993_1280.69f0161267935cd80f0a.webp",
     "index.html": "./index.html",
-    "main.584d3615.css.map": "./static/css/main.584d3615.css.map",
-    "main.95860ecd.js.map": "./static/js/main.95860ecd.js.map"
+    "main.2aa7b495.css.map": "./static/css/main.2aa7b495.css.map",
+    "main.01bd26fe.js.map": "./static/js/main.01bd26fe.js.map"
   },
   "entrypoints": [
-    "static/css/main.584d3615.css",
-    "static/js/main.95860ecd.js"
+    "static/css/main.2aa7b495.css",
+    "static/js/main.01bd26fe.js"
   ]
 }
