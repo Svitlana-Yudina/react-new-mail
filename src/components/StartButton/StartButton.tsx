@@ -1,20 +1,24 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 import { Actions } from '../../types/types';
 import './StartButton.scss';
 
 type Props = {
   type: Actions,
-  setOption: React.Dispatch<React.SetStateAction<string>>
+  to: string,
 }
 
-export const StartButton: React.FC<Props> = ({ type, setOption }) => {
+export const StartButton: React.FC<Props> = ({ type, to }) => {
   return (
-    <button
-      type="button"
-      className="button"
-      onClick={() => setOption(type)}
+    <NavLink
+      className={({ isActive }) => classNames(
+        'button',
+        { 'button__active': isActive },
+      )}
+      to={to}
     >
       {type}
-    </button>
+    </NavLink>
   );
 }

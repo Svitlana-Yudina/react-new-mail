@@ -2,12 +2,14 @@
 
 .button {
   padding: 10px;
-  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+
   background-color: $prymaryButton;
   color: #ffffff;
   text-shadow: 1px 1px 2px #000000;
-  font-weight: 500;
   border: none;
+  border-radius: 8px;
   box-shadow: 2px 2px 2px #686565;
   cursor: pointer;
   transition: 300ms;
