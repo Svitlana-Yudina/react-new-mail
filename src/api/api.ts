@@ -1,4 +1,11 @@
-import { AreaData, AreaResponse, CityData, CityResponse } from '../types/types';
+import {
+  AdressData,
+  AdressResponse,
+  AreaData,
+  AreaResponse,
+  CityData,
+  CityResponse,
+} from '../types/types';
 
 const apiUrl = 'https://api.novaposhta.ua/v2.0/json/';
 
@@ -40,6 +47,25 @@ export function getCities(areaRef: string): Promise<CityData[]> {
     headers: {} }
 
   return request<CityResponse>(options)
+    .then(response => response.data)
+    .catch((err) => {
+      throw new Error(`${err}`);
+    });
+}
+
+export function getWarehouses(cityRef: string): Promise<AdressData[]> {
+  const options = { method: 'POST',
+    body: JSON.stringify({
+      apiKey: '4acfc6aa52ccdc63bebaca806e3fd62c',
+      modelName: 'Address',
+      calledMethod: 'getWarehouses',
+      methodProperties: {
+        'CityRef': cityRef,
+      },
+    }),
+    headers: {} }
+
+  return request<AdressResponse>(options)
     .then(response => response.data)
     .catch((err) => {
       throw new Error(`${err}`);
