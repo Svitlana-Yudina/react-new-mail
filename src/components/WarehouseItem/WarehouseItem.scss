@@ -1,0 +1,38 @@
+@import '../../utils/mixins';
+
+.warehouseItem {
+  padding: 5px;
+  box-sizing: border-box;
+  margin-bottom: 2px;
+  min-width: 300px;
+  border-radius: 5px;
+  border: 1px solid #9c9c98;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__title {
+    margin-right: 5px;
+    font-size: 10px;
+    line-height: 100%;
+    font-weight: 700;
+
+    @include onTablet {
+      font-size: 12px;
+    }
+  }
+
+  &__description {
+    font-size: 10px;
+    line-height: 100%;
+
+    @include onTablet {
+      font-size: 12px;
+    }
+  }
+
+  .container {
+    display: flex;
+  }
+}

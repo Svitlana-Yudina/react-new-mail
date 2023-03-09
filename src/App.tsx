@@ -1,10 +1,11 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.scss';
+import { AdressProvider } from './components/AdressContext';
 import { HomePage } from './components/HomePage';
 import { StartButton } from './components/StartButton';
 import { Tracking } from './components/Tracking';
-import { WarehouseList } from './components/WarehouseList';
+import { Warehouse } from './components/Warehouse';
 import { Actions } from './types/types';
 
 export const App: React.FC = () => {
@@ -20,7 +21,11 @@ export const App: React.FC = () => {
           <Route path="/home" element={(<Navigate to="/" replace />)} />
           <Route path="/" element={(<HomePage />)} />
           <Route path="/track" element={(<Tracking />)} />
-          <Route path="/adresses" element={(<WarehouseList />)} />
+          <Route path="/adresses" element={(
+            <AdressProvider>
+              <Warehouse />
+            </AdressProvider>
+          )} />
         </Routes>
       </div>
     </div>

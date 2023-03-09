@@ -31,7 +31,6 @@ export const AreasSelect: React.FC = () => {
 
   return (
     <div className="areaSelect">
-      {/* <Loader /> */}
       {isLoading && (
         <Loader />
       )}

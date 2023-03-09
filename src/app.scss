@@ -12,8 +12,8 @@
   &__menu {
     margin: 0 auto 2em;
     display: flex;
-    justify-content: space-around;
-    max-width: 500px;
+    justify-content: space-between;
+    max-width: 400px;
 
     @include onTablet {
       margin: 0 0 2em;
@@ -24,10 +24,11 @@
 
   &__content {
     margin: 0 auto;
-    max-width: 500px;
+    max-width: 400px;
 
     @include onTablet {
       margin: 0;
+      max-width: 1170px;
     }
   }
 }
