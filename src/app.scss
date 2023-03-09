@@ -21,4 +21,13 @@
       gap: 20px;
     }
   }
+
+  &__content {
+    margin: 0 auto;
+    max-width: 500px;
+
+    @include onTablet {
+      margin: 0;
+    }
+  }
 }
