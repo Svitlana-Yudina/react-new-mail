@@ -9,9 +9,20 @@ export interface AreaResponse {
   data: AreaData[],
 }
 
+export interface CityResponse {
+  success: boolean,
+  data: CityData[],
+}
+
 export type AreaData = {
   Ref: string,
   AreasCenter: string,
   DescriptionRu: string,
   Description: string,
 };
+
+export interface CityData {
+  Description: string,
+  Ref: string,
+  CityID: string,
+}

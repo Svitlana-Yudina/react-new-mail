@@ -1,32 +1,20 @@
-import React from 'react';
-import { AdressProvider } from '../AdressContext';
+/* eslint-disable no-console */
+import React, { useContext } from 'react';
+import { AdressContext } from '../AdressContext';
 import { AreasSelect } from '../AreasSelect';
+import { CitySelect } from '../CitySelect';
 import './WarehouseList.scss';
 
 export const WarehouseList: React.FC = () => {
+  const { areaValue } = useContext(AdressContext);
+
   return (
     <div className="warehouseList">
-      <AdressProvider>
         <AreasSelect/>
-      </AdressProvider>
-      {/* {areas.length !== 0 && (
-        <label className="warehouseList__label">
-          <select
-            name="areas"
-            value={areaValue}
-            onChange={(event) => {
-              setAreaValue(event.target.value);
-            }}
-          >
-            <option value="">Будь ласка, оберіть область</option>
-            {areas.map(area => (
-              <option key={area.Ref} value={area.Ref}>
-                {area.Description}
-              </option>
-            ))}
-          </select>
-        </label>
-      )} */}
+        {areaValue && (
+          <CitySelect />
+        )}
+        {/* <CitySelect /> */}
     </div>
   );
 }
