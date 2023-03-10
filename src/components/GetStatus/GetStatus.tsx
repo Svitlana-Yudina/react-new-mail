@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import './GetStatus.scss';
 import '../../additionalStyles/PrimaryButton.scss';
 
-export const GetStatus: React.FC = () => {
+type Props = {
+  load: (ttnNumber: string) => Promise<void>
+}
+
+export const GetStatus: React.FC<Props> = ({ load }) => {
   const ttnFormat = RegExp('[0-9]{14}');
   const [value, setValue] = useState('');
   const [isError, setIsError] = useState(false);
@@ -16,10 +20,12 @@ export const GetStatus: React.FC = () => {
         onSubmit={(e) => {
           e.preventDefault();
 
-          const isRightFormat = ttnFormat.test(value);
+          const isRightFormat = ttnFormat.test(value) && value.length === 14;
 
           if (!isRightFormat) {
             setIsError(true);
+          } else {
+            load(value);
           }
           setValue('');
         }}

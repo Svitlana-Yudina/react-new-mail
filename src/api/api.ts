@@ -5,6 +5,8 @@ import {
   AreaResponse,
   CityData,
   CityResponse,
+  StatusData,
+  StatusResponse,
 } from '../types/types';
 
 const apiUrl = 'https://api.novaposhta.ua/v2.0/json/';
@@ -66,6 +68,29 @@ export function getWarehouses(cityRef: string): Promise<AdressData[]> {
     headers: {} }
 
   return request<AdressResponse>(options)
+    .then(response => response.data)
+    .catch((err) => {
+      throw new Error(`${err}`);
+    });
+}
+
+export function getStatus(tthNumber: string): Promise<StatusData[]> {
+  const options = { method: 'POST',
+    body: JSON.stringify({
+      apiKey: '',
+      modelName: 'TrackingDocument',
+      calledMethod: 'getStatusDocuments',
+      methodProperties: {
+        Documents: [
+          {
+            'DocumentNumber': tthNumber,
+          },
+        ],
+      },
+    }),
+    headers: {} }
+
+  return request<StatusResponse>(options)
     .then(response => response.data)
     .catch((err) => {
       throw new Error(`${err}`);

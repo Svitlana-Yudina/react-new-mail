@@ -38,3 +38,15 @@ export interface AdressData {
   Phone: string,
   Ref: string,
 }
+
+export interface StatusResponse {
+  success: boolean,
+  data: StatusData[],
+}
+
+export interface StatusData {
+  Number: string,
+  WarehouseRecipient: string,
+  WarehouseSender: string,
+  Status: string,
+}
