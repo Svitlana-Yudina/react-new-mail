@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './GetStatus.scss';
+import '../../additionalStyles/PrimaryButton.scss';
 
 export const GetStatus: React.FC = () => {
   const ttnFormat = RegExp('[0-9]{14}');
@@ -35,7 +36,8 @@ export const GetStatus: React.FC = () => {
             }}
           />
         </label>
-        <button className="getStatus__button" type="submit">
+
+        <button className="getStatus__button primButton" type="submit">
           Отримати статус
         </button>
       </form>
@@ -43,7 +45,6 @@ export const GetStatus: React.FC = () => {
         <p className="getStatus__errors">
           Номер ТТН має складатись з 14 цифр.
         </p>
-
       )}
     </div>
   );
