@@ -5,6 +5,7 @@ import { AdressContext } from '../AdressContext';
 import { Loader } from '../Loader';
 import { WarehouseItem } from '../WarehouseItem';
 import './WarehouseList.scss';
+import '../../additionalStyles/FailMessage.scss';
 
 export const WarehouseList: React.FC = () => {
   const [warehouses, setWarehouses] = useState<AdressData[]>([]);
@@ -48,7 +49,7 @@ export const WarehouseList: React.FC = () => {
         </>
       )}
       {!isLoading && warehouses.length === 0 && (
-        <p>Нажаль, немає відділень<br/>
+        <p className="failMessage">Нажаль, немає відділень<br/>
         {'у цьому населеному пункті :('}
         </p>
       )}
