@@ -9,7 +9,7 @@ import './AreasSelect.scss';
 export const AreasSelect: React.FC = () => {
   const [areas, setAreas] = useState<AreaData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { areaValue, setAreaValue } = useContext(AdressContext);
+  const { areaValue, setAreaValue, setCityValue } = useContext(AdressContext);
 
   const loadAreas = useCallback(async() => {
     setIsLoading(true);
@@ -42,6 +42,7 @@ export const AreasSelect: React.FC = () => {
             value={areaValue}
             onChange={(event) => {
               setAreaValue(event.target.value);
+              setCityValue('');
             }}
           >
             <option value="">Будь ласка, оберіть область</option>

@@ -1,10 +1,19 @@
 .warehouseList {
   box-sizing: border-box;
   padding: 2px;
+  position: relative;
   width: fit-content;
   max-width: 400px;
   max-height: 300px;
   overflow-y: scroll;
   border-radius: 2px;
   border: 1px solid #9c9c98;
+
+}
+
+.amount-message {
+  padding: 2px;
+  font-size: 10px;
+  line-height: 100%;
+  font-weight: 700;
 }

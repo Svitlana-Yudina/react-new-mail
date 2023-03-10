@@ -39,7 +39,6 @@ export const CitySelect: React.FC = () => {
           <select
             className="citySelect__select"
             name="cities"
-            defaultValue=""
             value={cityValue}
             onChange={(event) => {
               setCityValue(event.target.value);

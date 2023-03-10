@@ -10,6 +10,7 @@ export const WarehouseList: React.FC = () => {
   const [warehouses, setWarehouses] = useState<AdressData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const { cityValue } = useContext(AdressContext);
+  const warehouseAmount = warehouses.length;
 
   const loadWarehouses = useCallback(async(city: string) => {
     setIsLoading(true);
@@ -35,11 +36,21 @@ export const WarehouseList: React.FC = () => {
         <Loader />
       )}
       {!isLoading && warehouses.length !== 0 && (
-        <div className="warehouseList">
-          {warehouses.map(warehouse => (
-            <WarehouseItem key={warehouse.Ref} item={warehouse}/>
-          ))}
-        </div>
+        <>
+          <p className="amount-message">
+            {`Знайдено відділень: ${warehouseAmount}`}
+          </p>
+          <div className="warehouseList">
+            {warehouses.map(warehouse => (
+              <WarehouseItem key={warehouse.Ref} item={warehouse}/>
+            ))}
+          </div>
+        </>
+      )}
+      {!isLoading && warehouses.length === 0 && (
+        <p>Нажаль, немає відділень<br/>
+        {'у цьому населеному пункті :('}
+        </p>
       )}
     </>
   );
