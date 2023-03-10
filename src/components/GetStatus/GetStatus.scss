@@ -1,0 +1,52 @@
+@import '../../utils/mixins';
+@import '../../utils/variables';
+
+.getStatus {
+  &__form {
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
+    margin-right: 5px;
+    padding: 2px 5px;
+    border-radius: 5px;
+    border: 1px solid #9c9c98;
+    outline: none;
+
+    @include onTablet {
+      padding: 5px 7px;
+      font-size: 16px;
+    }
+  }
+
+  &__errors {
+    padding: 2px;
+    color: #df1a1a;
+  }
+
+  &__button {
+    padding: 2px 5px;
+    color: #ffffff;
+    background-color: $prymaryButton;
+    text-shadow: 1px 1px 2px #000000;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #686565;
+    cursor: pointer;
+    transition: 300ms;
+
+    @include onTablet {
+      padding: 5px 7px;
+    }
+
+    &:hover {
+      background-color: $prymaryHoverButton;
+    }
+
+    &:active {
+      transform: translate(2px, 2px);
+      box-shadow: none;
+    }
+  }
+}
