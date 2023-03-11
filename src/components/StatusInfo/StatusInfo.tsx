@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import { StatusData } from '../../types/types';
 import '../../additionalStyles/FailMessage.scss';
@@ -7,11 +6,11 @@ import './StatusInfo.scss';
 
 type Props = {
   ttnStatus: StatusData,
-  isError: boolean,
 };
 
-export const StatusInfo: React.FC<Props> = ({ ttnStatus, isError }) => {
+export const StatusInfo: React.FC<Props> = ({ ttnStatus }) => {
   const {
+    Number: ttnNumber,
     WarehouseRecipient,
     CityRecipient,
     ActualDeliveryDate,
@@ -22,10 +21,8 @@ export const StatusInfo: React.FC<Props> = ({ ttnStatus, isError }) => {
     Status,
     StatusCode,
   } = ttnStatus;
-  const isStatusShown = StatusCode !== '3' && StatusCode !== '2' && !isError;
-  const isNumberNotFound = StatusCode === '3' || isError;
-
-  console.log(StatusCode, ' ', Status);
+  const isStatusShown = StatusCode !== '3' && StatusCode !== '2' && ttnNumber;
+  const isNumberNotFound = StatusCode === '3' || !ttnNumber;
 
   return (
     <>
