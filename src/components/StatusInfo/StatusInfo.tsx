@@ -7,9 +7,10 @@ import './StatusInfo.scss';
 
 type Props = {
   ttnStatus: StatusData,
+  isError: boolean,
 };
 
-export const StatusInfo: React.FC<Props> = ({ ttnStatus }) => {
+export const StatusInfo: React.FC<Props> = ({ ttnStatus, isError }) => {
   const {
     WarehouseRecipient,
     CityRecipient,
@@ -21,25 +22,28 @@ export const StatusInfo: React.FC<Props> = ({ ttnStatus }) => {
     Status,
     StatusCode,
   } = ttnStatus;
-  const isStatusShown = StatusCode !== '3' && StatusCode !== '2';
+  const isStatusShown = StatusCode !== '3' && StatusCode !== '2' && !isError;
+  const isNumberNotFound = StatusCode === '3' || isError;
 
   console.log(StatusCode, ' ', Status);
 
   return (
-    <div className="statusInfo list">
-      {StatusCode === '3' && (
+    <>
+      {isNumberNotFound && (
         <p className="failMessage">ТТН з таким номером не знайдено</p>
       )}
 
       {StatusCode === '2' && (
         <p className="failMessage">ТТН з таким номером видалено</p>
       )}
+
       {isStatusShown && (
-        <>
+        <div className="statusInfo list">
           <div className="container statusInfo__status">
             <p className="statusInfo__title">Статус відправлення:</p>
             <p className="statusInfo__description">{Status}</p>
           </div>
+
           <div className="statusInfo__details listItem">
             <p className="statusInfo__person">Відправник</p>
 
@@ -58,6 +62,7 @@ export const StatusInfo: React.FC<Props> = ({ ttnStatus }) => {
               <p className="statusInfo__description">{WarehouseSender}</p>
             </div>
           </div>
+
           <div className="statusInfo__details listItem">
             <p className="statusInfo__person">Отримувач</p>
 
@@ -89,8 +94,8 @@ export const StatusInfo: React.FC<Props> = ({ ttnStatus }) => {
               <p className="statusInfo__description">{WarehouseRecipient}</p>
             </div>
           </div>
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 };
