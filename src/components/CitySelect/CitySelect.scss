@@ -1,11 +1,7 @@
 @import '../../utils/mixins';
 
 .citySelect {
-  margin: 0 0 10px;
-
-  @include onTablet {
-    margin: 0 0 10px;
-  }
+  margin-bottom: 10px;
 
   &__select{
     padding: 5px;

@@ -47,6 +47,12 @@ export interface StatusResponse {
 export interface StatusData {
   Number: string,
   WarehouseRecipient: string,
+  CityRecipient: string,
+  ActualDeliveryDate: string, // фактична дата доставки
+  ScheduledDeliveryDate: string, // очікувана дата доставки
   WarehouseSender: string,
+  CitySender: string,
+  DateCreated: string, // дата створення ттн
   Status: string,
+  StatusCode: string,
 }

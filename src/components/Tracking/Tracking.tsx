@@ -3,6 +3,7 @@ import React, { useCallback, useState } from 'react';
 import { getStatus } from '../../api/api';
 import { StatusData } from '../../types/types';
 import { GetStatus } from '../GetStatus';
+import { StatusInfo } from '../StatusInfo';
 import './Tracking.scss';
 
 export const Tracking: React.FC = () => {
@@ -24,6 +25,9 @@ export const Tracking: React.FC = () => {
   return (
     <div className="tracking">
       <GetStatus load={loadStatus} />
+      {ttnStatus.length !== 0 && (
+        <StatusInfo ttnStatus={ttnStatus[0]}/>
+      )}
     </div>
   );
 }

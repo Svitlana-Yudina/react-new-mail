@@ -6,6 +6,7 @@ import { Loader } from '../Loader';
 import { WarehouseItem } from '../WarehouseItem';
 import './WarehouseList.scss';
 import '../../additionalStyles/FailMessage.scss';
+import '../../additionalStyles/ContainerStyles.scss';
 
 export const WarehouseList: React.FC = () => {
   const [warehouses, setWarehouses] = useState<AdressData[]>([]);
@@ -41,7 +42,7 @@ export const WarehouseList: React.FC = () => {
           <p className="amount-message">
             {`Знайдено відділень: ${warehouseAmount}`}
           </p>
-          <div className="warehouseList">
+          <div className="warehouseList list">
             {warehouses.map(warehouse => (
               <WarehouseItem key={warehouse.Ref} item={warehouse}/>
             ))}
