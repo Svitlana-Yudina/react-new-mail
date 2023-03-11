@@ -1,12 +1,7 @@
 @import '../../utils/mixins';
 
 .warehouseItem {
-  padding: 5px;
-  box-sizing: border-box;
   margin-bottom: 2px;
-  min-width: 300px;
-  border-radius: 5px;
-  border: 1px solid #9c9c98;
 
   &:last-child {
     margin-bottom: 0;

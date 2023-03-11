@@ -1,17 +1,12 @@
 @import '../../utils/mixins';
 
 .areaSelect {
-  margin: 0 0 10px;
-
-  @include onTablet {
-    margin: 0 0 10px;
-  }
+  margin-bottom: 10px;
 
   &__select{
     padding: 5px;
     border-radius: 2px;
     border: 1px solid #9c9c98;
-    font-size: 12px;
     outline: none;
 
     @include onTablet {

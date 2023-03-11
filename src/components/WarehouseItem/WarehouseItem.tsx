@@ -1,5 +1,6 @@
 import React from 'react';
 import { AdressData } from '../../types/types';
+import '../../additionalStyles/ContainerStyles.scss';
 import './WarehouseItem.scss';
 
 type Props = {
@@ -10,7 +11,7 @@ export const WarehouseItem: React.FC<Props> = ({ item }) => {
   const { Description, Phone, ShortAddress } = item;
 
   return (
-    <div className="warehouseItem">
+    <div className="warehouseItem listItem">
       <div className="container">
         <p className="warehouseItem__title">Відділення:</p>
         <p className="warehouseItem__description">{Description}</p>

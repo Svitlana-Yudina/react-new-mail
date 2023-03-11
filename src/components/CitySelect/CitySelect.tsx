@@ -5,6 +5,7 @@ import { CityData } from '../../types/types';
 import { AdressContext } from '../AdressContext';
 import { Loader } from '../Loader';
 import './CitySelect.scss';
+import '../../additionalStyles/FailMessage.scss';
 
 export const CitySelect: React.FC = () => {
   const [cities, setCities] = useState<CityData[]>([]);
@@ -54,8 +55,9 @@ export const CitySelect: React.FC = () => {
         </label>
       )}
       {!isLoading && cities.length === 0 && (
-        <p>Нажаль ми не обслуговуємо <br/>
-        {'населені пункти в цій області :('}
+        <p className="failMessage">
+          Нажаль ми не обслуговуємо <br/>
+          {'населені пункти в цій області :('}
         </p>
       )}
     </div>

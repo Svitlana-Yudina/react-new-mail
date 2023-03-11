@@ -5,6 +5,7 @@ import { AreaData } from '../../types/types';
 import { AdressContext } from '../AdressContext';
 import { Loader } from '../Loader';
 import './AreasSelect.scss';
+import '../../additionalStyles/FailMessage.scss';
 
 export const AreasSelect: React.FC = () => {
   const [areas, setAreas] = useState<AreaData[]>([]);
@@ -55,8 +56,9 @@ export const AreasSelect: React.FC = () => {
         </label>
       )}
       {!isLoading && areas.length === 0 && (
-        <p>{'Нажаль не вдалось завантажити дані :('}<br/>
-            Спробуйте, будь ласка, пізніше.
+        <p className="failMessage">
+          {'Нажаль не вдалось завантажити дані :('}<br/>
+          Спробуйте, будь ласка, пізніше.
         </p>
       )}
     </div>
