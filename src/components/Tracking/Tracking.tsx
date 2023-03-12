@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { getStatus } from '../../api/api';
 import { StatusData } from '../../types/types';
 import { GetStatus } from '../GetStatus';
@@ -7,6 +7,11 @@ import { StatusInfo } from '../StatusInfo';
 import './Tracking.scss';
 
 export const Tracking: React.FC = () => {
+  const initialHistory = JSON.parse(
+    localStorage.getItem('viewied_numbers') || '[]',
+  );
+
+  const [ttnHistory, setTtnHistory] = useState<string[]>(initialHistory);
   const [ttnStatus, setTtnStatus] = useState<StatusData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -45,9 +50,16 @@ export const Tracking: React.FC = () => {
     }
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem('viewied_numbers', JSON.stringify(ttnHistory));
+  }, [ttnHistory]);
+
   return (
     <div className="tracking">
-      <GetStatus load={loadStatus} />
+      <GetStatus
+        load={loadStatus}
+        setHistory={setTtnHistory}
+      />
 
       {isLoading && (
         <Loader />
