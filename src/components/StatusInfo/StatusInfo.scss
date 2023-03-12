@@ -1,6 +1,11 @@
 @import '../../utils/mixins';
 
 .statusInfo {
+  max-width: 400px;
+
+  @include onTablet {
+    width: 400px;
+  }
   &__status {
     padding: 5px;
     margin-bottom: 10px;

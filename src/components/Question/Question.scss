@@ -1,0 +1,30 @@
+@import '../../utils/mixins';
+
+.question {
+  max-width: 400px;
+
+  @include onTablet {
+    width: 400px;
+  }
+  
+  &__title {
+    font-weight: 500;
+    text-align: center;
+
+    @include onTablet {
+      text-align: start;
+    }
+  }
+
+  &__image {
+    background-image: url('../../images/question-mark-1019993_1280.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 200px;
+
+    @include onTablet {
+      background-position: 0 0;
+    }
+  }
+}
