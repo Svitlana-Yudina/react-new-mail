@@ -9,6 +9,7 @@ type Props = {
   setValue: React.Dispatch<React.SetStateAction<string>>,
   load: (ttnNumber: string) => Promise<void>,
   setIsError: React.Dispatch<React.SetStateAction<boolean>>,
+  setHistory: React.Dispatch<React.SetStateAction<string[]>>,
 };
 
 export const BrowsingHistory: React.FC<Props> = React.memo(
@@ -17,8 +18,9 @@ export const BrowsingHistory: React.FC<Props> = React.memo(
     setValue,
     load,
     setIsError,
+    setHistory,
   }: Props) {
-    const handleClick = useCallback((
+    const handleTTNClick = useCallback((
       event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
       item: string,
     ) => {
@@ -26,6 +28,15 @@ export const BrowsingHistory: React.FC<Props> = React.memo(
       setIsError(false);
       setValue(item);
       load(item);
+
+      setHistory(prevHistory => {
+        const filteredHistory = prevHistory.filter(el => el !== item);
+
+        return [
+          item,
+          ...filteredHistory,
+        ];
+      });
     }, []);
 
     return (
@@ -47,7 +58,7 @@ export const BrowsingHistory: React.FC<Props> = React.memo(
                   href="/"
                   className="history__item"
                   onClick={(event) => {
-                    handleClick(event, item);
+                    handleTTNClick(event, item);
                   }}
                 >
                   {item}
@@ -56,7 +67,13 @@ export const BrowsingHistory: React.FC<Props> = React.memo(
             </>
           )}
         </div>
-        <button type="button" className="history__clear">
+        <button
+          type="button"
+          className="history__clear"
+          onClick={() => {
+            setHistory([]);
+          }}
+        >
           Очистити історію
         </button>
       </div>

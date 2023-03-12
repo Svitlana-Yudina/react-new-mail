@@ -52,6 +52,7 @@ export const Tracking: React.FC = () => {
           setValue={setValue}
           load={loadStatus}
           setIsError={setIsError}
+          setHistory={setTtnHistory}
         />
       </div>
     </div>
