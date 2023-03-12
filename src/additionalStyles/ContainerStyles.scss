@@ -1,6 +1,8 @@
 .list {
   box-sizing: border-box;
   padding: 2px;
+  display: flex;
+  flex-direction: column;
   width: fit-content;
   max-width: 400px;
   border-radius: 2px;

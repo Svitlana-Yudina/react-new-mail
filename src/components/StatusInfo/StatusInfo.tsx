@@ -25,7 +25,7 @@ export const StatusInfo: React.FC<Props> = ({ ttnStatus }) => {
   const isNumberNotFound = StatusCode === '3' || !ttnNumber;
 
   return (
-    <>
+    <div className="statusInfo">
       {isNumberNotFound && (
         <p className="failMessage">ТТН з таким номером не знайдено</p>
       )}
@@ -93,6 +93,6 @@ export const StatusInfo: React.FC<Props> = ({ ttnStatus }) => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };

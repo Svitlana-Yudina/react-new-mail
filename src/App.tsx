@@ -2,7 +2,8 @@ import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.scss';
 import { AdressProvider } from './components/AdressContext';
-import { HomePage } from './components/HomePage';
+// import { HomePage } from './components/HomePage';
+import { Question } from './components/Question';
 import { StartButton } from './components/StartButton';
 import { Tracking } from './components/Tracking';
 import { Warehouse } from './components/Warehouse';
@@ -19,7 +20,9 @@ export const App: React.FC = () => {
       <div className="app__content">
         <Routes>
           <Route path="/home" element={(<Navigate to="/" replace />)} />
-          <Route path="/" element={(<HomePage />)} />
+          <Route path="/" element={(
+            <Question message={'Що бажаєте переглянути?'} />
+          )} />
           <Route path="/track" element={(<Tracking />)} />
           <Route path="/adresses" element={(
             <AdressProvider>
