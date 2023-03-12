@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /* eslint-disable no-shadow */
 import React, { useCallback } from 'react';
 import '../../additionalStyles/FailMessage.scss';
@@ -28,8 +27,6 @@ export const BrowsingHistory: React.FC<Props> = React.memo(
       setValue(item);
       load(item);
     }, []);
-
-    console.log('render');
 
     return (
       <div className="history list">
