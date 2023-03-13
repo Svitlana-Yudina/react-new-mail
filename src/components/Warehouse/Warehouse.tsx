@@ -1,21 +1,22 @@
 /* eslint-disable no-console */
-import React, { useContext } from 'react';
-import { AdressContext } from '../AdressContext';
+import React from 'react';
+import { useAppSelector } from '../../api/reduxStore/hooks';
 import { AreasSelect } from '../AreasSelect';
 import { CitySelect } from '../CitySelect';
 import { WarehouseList } from '../WarehouseList';
 import './Warehouse.scss';
 
 export const Warehouse: React.FC = () => {
-  const { areaValue, cityValue } = useContext(AdressContext);
+  const city = useAppSelector(state => state.city);
+  const area = useAppSelector(state => state.area);
 
   return (
     <div className="warehouse">
         <AreasSelect/>
-        {areaValue && (
+        {area && (
           <CitySelect />
         )}
-        {cityValue && (
+        {city && (
           <WarehouseList />
         )}
     </div>

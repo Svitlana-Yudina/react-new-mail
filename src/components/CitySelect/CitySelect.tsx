@@ -1,16 +1,24 @@
 /* eslint-disable no-shadow */
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { getCities } from '../../api/api';
 import { CityData } from '../../types/types';
-import { AdressContext } from '../AdressContext';
 import { Loader } from '../Loader';
 import './CitySelect.scss';
 import '../../additionalStyles/FailMessage.scss';
+import { useAppSelector } from '../../api/reduxStore/hooks';
+import { cityActions } from '../../api/reduxStore/city';
 
 export const CitySelect: React.FC = () => {
+  const dispatch = useDispatch();
+  const city = useAppSelector(state => state.city);
+  const area = useAppSelector(state => state.area);
   const [cities, setCities] = useState<CityData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { areaValue, cityValue, setCityValue } = useContext(AdressContext);
+
+  const loadCity = (cityToLoad: string) => (
+    dispatch(cityActions.load(cityToLoad))
+  );
 
   const loadCities = useCallback(async(area: string) => {
     setIsLoading(true);
@@ -27,8 +35,8 @@ export const CitySelect: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    loadCities(areaValue);
-  }, [areaValue]);
+    loadCities(area);
+  }, [area]);
 
   return (
     <div className="citySelect">
@@ -40,15 +48,15 @@ export const CitySelect: React.FC = () => {
           <select
             className="citySelect__select"
             name="cities"
-            value={cityValue}
+            value={city}
             onChange={(event) => {
-              setCityValue(event.target.value);
+              loadCity(event.target.value);
             }}
           >
             <option value="">Будь ласка, оберіть населений пункт</option>
-            {cities.map(city => (
-              <option key={city.Ref} value={city.Ref}>
-                {city.Description}
+            {cities.map(cityItem => (
+              <option key={cityItem.Ref} value={cityItem.Ref}>
+                {cityItem.Description}
               </option>
             ))}
           </select>

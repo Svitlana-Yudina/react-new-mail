@@ -6,7 +6,7 @@
 ## This is a project for working with Nova Poshta.
 
 ### Technologies:
-React(create-react-app), react-hooks, react-router, custom hooks, react-context,
+React(create-react-app), react-hooks, react-router, custom hooks, Redux,
 HTML, SCSS, TypeScript.
 
 ### Used API: 

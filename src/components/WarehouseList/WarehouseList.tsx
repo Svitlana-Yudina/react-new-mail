@@ -1,24 +1,24 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { getWarehouses } from '../../api/api';
 import { AdressData } from '../../types/types';
-import { AdressContext } from '../AdressContext';
 import { Loader } from '../Loader';
 import { WarehouseItem } from '../WarehouseItem';
 import './WarehouseList.scss';
 import '../../additionalStyles/FailMessage.scss';
 import '../../additionalStyles/ContainerStyles.scss';
+import { useAppSelector } from '../../api/reduxStore/hooks';
 
 export const WarehouseList: React.FC = () => {
   const [warehouses, setWarehouses] = useState<AdressData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { cityValue } = useContext(AdressContext);
+  const city = useAppSelector(state => state.city);
   const warehouseAmount = warehouses.length;
 
-  const loadWarehouses = useCallback(async(city: string) => {
+  const loadWarehouses = useCallback(async(cityRef: string) => {
     setIsLoading(true);
 
     try {
-      const warehousesFromServer = await getWarehouses(city);
+      const warehousesFromServer = await getWarehouses(cityRef);
 
       setWarehouses(warehousesFromServer);
     } catch (err) {
@@ -29,8 +29,8 @@ export const WarehouseList: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    loadWarehouses(cityValue);
-  }, [cityValue]);
+    loadWarehouses(city);
+  }, [city]);
 
   return (
     <>

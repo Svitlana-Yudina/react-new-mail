@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './api/reduxStore/store';
 import './App.scss';
-import { AdressProvider } from './components/AdressContext';
-// import { HomePage } from './components/HomePage';
 import { Question } from './components/Question';
 import { StartButton } from './components/StartButton';
 import { Tracking } from './components/Tracking';
@@ -25,9 +25,9 @@ export const App: React.FC = () => {
           )} />
           <Route path="/track" element={(<Tracking />)} />
           <Route path="/adresses" element={(
-            <AdressProvider>
+            <Provider store={store}>
               <Warehouse />
-            </AdressProvider>
+            </Provider>
           )} />
         </Routes>
       </div>

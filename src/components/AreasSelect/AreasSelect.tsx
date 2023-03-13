@@ -1,16 +1,28 @@
 /* eslint-disable no-shadow */
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { getAreas } from '../../api/api';
 import { AreaData } from '../../types/types';
-import { AdressContext } from '../AdressContext';
 import { Loader } from '../Loader';
 import './AreasSelect.scss';
 import '../../additionalStyles/FailMessage.scss';
+import { useAppSelector } from '../../api/reduxStore/hooks';
+import { areaActions } from '../../api/reduxStore/area';
+import { cityActions } from '../../api/reduxStore/city';
 
 export const AreasSelect: React.FC = () => {
+  const dispatch = useDispatch();
+  const area = useAppSelector(state => state.area);
   const [areas, setAreas] = useState<AreaData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { areaValue, setAreaValue, setCityValue } = useContext(AdressContext);
+
+  const loadArea = (areaToLoad: string) => (
+    dispatch(areaActions.load(areaToLoad))
+  );
+
+  const clearCity = () => (
+    dispatch(cityActions.clear())
+  );
 
   const loadAreas = useCallback(async() => {
     setIsLoading(true);
@@ -40,16 +52,16 @@ export const AreasSelect: React.FC = () => {
           <select
             className="areaSelect__select"
             name="areas"
-            value={areaValue}
+            value={area}
             onChange={(event) => {
-              setAreaValue(event.target.value);
-              setCityValue('');
+              loadArea(event.target.value);
+              clearCity();
             }}
           >
             <option value="">Будь ласка, оберіть область</option>
-            {areas.map(area => (
-              <option key={area.Ref} value={area.Ref}>
-                {area.Description}
+            {areas.map(areaItem => (
+              <option key={areaItem.Ref} value={areaItem.Ref}>
+                {areaItem.Description}
               </option>
             ))}
           </select>
