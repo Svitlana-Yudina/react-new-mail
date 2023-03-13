@@ -1,20 +1,21 @@
 # react-new-mail
 
-- [DEMO LINK](https://svitlana-yudina.github.io/react-new-mail/)
+# - [DEMO LINK](https://svitlana-yudina.github.io/react-new-mail/)
 
-This is a project for working with Nova Poshta.
 
-Technologies:
+## This is a project for working with Nova Poshta.
+
+### Technologies:
 React(create-react-app), react-hooks, react-router, custom hooks, react-context,
 HTML, SCSS, TypeScript.
 
-Used API: https://developers.novaposhta.ua/documentation
+### Used API: 
+https://developers.novaposhta.ua/documentation
 
-Description:
+### Description:
 The user has the opportunity to choose one of two options:
-1. View the list of warehouses.
-2. Get the status of the parcel by the TTN number.
 
+### 1.  View the list of warehouses.
 - At first, the user selects the area, then the city.
   Then he sees the number of found warehouses and their list.
 - Each individual select sends a separate request 
@@ -24,7 +25,7 @@ The user has the opportunity to choose one of two options:
 - The user sees a corresponding message if there are no 
   Nova Poshta warehouses or parcel machines in the locality.
 
-
+### 2.  Get the status of the parcel by the TTN number.
 - On this page, the user can get information about 
   the parcel by entering the TTN number in the field or 
   by selecting from the history field.
