@@ -2,6 +2,7 @@
 import React, { useCallback } from 'react';
 import '../../additionalStyles/FailMessage.scss';
 import '../../additionalStyles/ContainerStyles.scss';
+import '../../additionalStyles/PrimaryButton.scss';
 import './BrowsingHistory.scss';
 
 type Props = {
@@ -69,7 +70,7 @@ export const BrowsingHistory: React.FC<Props> = React.memo(
         </div>
         <button
           type="button"
-          className="history__clear"
+          className="history__clear primButton"
           onClick={() => {
             setHistory([]);
           }}
