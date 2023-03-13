@@ -19,7 +19,7 @@ const clear = (): AreaAction => (
 
 export const areaActions = { load, clear };
 
-const areaReducer = (area = '', action: AreaAction) => {
+const areaReducer = (area = '', action: AreaAction): string => {
   switch (action.type) {
     case Actions.LOAD:
       return action.payLoad;
