@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+
+import { useHistory } from '../../customHooks/useHistory';
+import { useLoadStatus } from '../../customHooks/useLoadStatus';
+
 import { GetStatus } from '../GetStatus';
 import { BrowsingHistory } from '../BrowsingHistory';
 import { Loader } from '../Loader';
 import { StatusInfo } from '../StatusInfo';
-import { useHistory } from '../../customHooks/useHistory';
-import { useLoadStatus } from '../../customHooks/useLoadStatus';
-import './Tracking.scss';
 import { Question } from '../Question';
+
+import './Tracking.scss';
 
 export const Tracking: React.FC = () => {
   const [value, setValue] = useState('');

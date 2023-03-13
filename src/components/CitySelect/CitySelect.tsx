@@ -1,13 +1,15 @@
 /* eslint-disable no-shadow */
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+
 import { getCities } from '../../api/api';
-import { CityData } from '../../types/types';
-import { Loader } from '../Loader';
-import './CitySelect.scss';
-import '../../additionalStyles/FailMessage.scss';
 import { useAppSelector } from '../../api/reduxStore/hooks';
 import { cityActions } from '../../api/reduxStore/city';
+
+import { Loader } from '../Loader';
+import { CityData } from '../../types/types';
+import './CitySelect.scss';
+import '../../additionalStyles/FailMessage.scss';
 
 export const CitySelect: React.FC = () => {
   const dispatch = useDispatch();

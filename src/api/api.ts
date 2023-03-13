@@ -10,6 +10,7 @@ import {
 } from '../types/types';
 
 const apiUrl = 'https://api.novaposhta.ua/v2.0/json/';
+const apiKey = '4acfc6aa52ccdc63bebaca806e3fd62c';
 
 export function request<T>(data: RequestInit): Promise<T> {
   return fetch(apiUrl, data)
@@ -24,7 +25,7 @@ export function request<T>(data: RequestInit): Promise<T> {
 export function getAreas(): Promise<AreaData[]> {
   const options = { method: 'POST',
     body: JSON.stringify({
-      apiKey: '4acfc6aa52ccdc63bebaca806e3fd62c',
+      apiKey,
       modelName: 'Address',
       calledMethod: 'getAreas',
       methodProperties: {},
@@ -41,7 +42,7 @@ export function getAreas(): Promise<AreaData[]> {
 export function getCities(areaRef: string): Promise<CityData[]> {
   const options = { method: 'POST',
     body: JSON.stringify({
-      apiKey: '4acfc6aa52ccdc63bebaca806e3fd62c',
+      apiKey,
       modelName: 'Address',
       calledMethod: 'getCities',
       methodProperties: {
@@ -60,7 +61,7 @@ export function getCities(areaRef: string): Promise<CityData[]> {
 export function getWarehouses(cityRef: string): Promise<AdressData[]> {
   const options = { method: 'POST',
     body: JSON.stringify({
-      apiKey: '4acfc6aa52ccdc63bebaca806e3fd62c',
+      apiKey,
       modelName: 'Address',
       calledMethod: 'getWarehouses',
       methodProperties: {

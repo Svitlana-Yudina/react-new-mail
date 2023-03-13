@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { StatusData } from '../../types/types';
 import '../../additionalStyles/FailMessage.scss';
 import '../../additionalStyles/ContainerStyles.scss';

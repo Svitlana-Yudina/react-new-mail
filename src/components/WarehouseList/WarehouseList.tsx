@@ -1,12 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { getWarehouses } from '../../api/api';
-import { AdressData } from '../../types/types';
+import { useAppSelector } from '../../api/reduxStore/hooks';
+
 import { Loader } from '../Loader';
 import { WarehouseItem } from '../WarehouseItem';
+
+import { AdressData } from '../../types/types';
 import './WarehouseList.scss';
 import '../../additionalStyles/FailMessage.scss';
 import '../../additionalStyles/ContainerStyles.scss';
-import { useAppSelector } from '../../api/reduxStore/hooks';
 
 export const WarehouseList: React.FC = () => {
   const [warehouses, setWarehouses] = useState<AdressData[]>([]);

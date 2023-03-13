@@ -1,14 +1,16 @@
 /* eslint-disable no-shadow */
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+
 import { getAreas } from '../../api/api';
-import { AreaData } from '../../types/types';
-import { Loader } from '../Loader';
-import './AreasSelect.scss';
-import '../../additionalStyles/FailMessage.scss';
 import { useAppSelector } from '../../api/reduxStore/hooks';
 import { areaActions } from '../../api/reduxStore/area';
 import { cityActions } from '../../api/reduxStore/city';
+
+import { Loader } from '../Loader';
+import { AreaData } from '../../types/types';
+import './AreasSelect.scss';
+import '../../additionalStyles/FailMessage.scss';
 
 export const AreasSelect: React.FC = () => {
   const dispatch = useDispatch();
