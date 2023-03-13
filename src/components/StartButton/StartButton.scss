@@ -8,6 +8,8 @@
   &__active {
     background-color: $prymaryActiveButton;
     transform: translate(2px, 2px);
+    -webkit-transform: translate(2px, 2px);
+    -moz-transform: translate(2px, 2px);
     box-shadow: none;
 
     &:hover {

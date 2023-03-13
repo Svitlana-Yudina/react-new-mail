@@ -8,7 +8,7 @@
   }
   
   &__title {
-    font-weight: 500;
+    font-weight: 400;
     text-align: center;
 
     @include onTablet {
@@ -17,11 +17,11 @@
   }
 
   &__image {
+    height: 200px;
     background-image: url('../../images/question-mark-1019993_1280.webp');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top;
-    height: 200px;
 
     @include onTablet {
       background-position: 0 0;
