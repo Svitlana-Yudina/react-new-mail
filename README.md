@@ -15,36 +15,37 @@ The user has the opportunity to choose one of two options:
 1. View the list of warehouses.
 2. Get the status of the parcel by the TTN number.
 
-1.1. At first, the user selects the area, then the city.
+- At first, the user selects the area, then the city.
   Then he sees the number of found warehouses and their list.
-1.2. Each individual select sends a separate request 
+- Each individual select sends a separate request 
   to get the data they need (region, city, list).
-1.3. If, after selecting a city, the user selects another area, 
+- If, after selecting a city, the user selects another area, 
   the city field is cleared.
-1.4. The user sees a corresponding message if there are no 
+- The user sees a corresponding message if there are no 
   Nova Poshta warehouses or parcel machines in the locality.
 
-2.1. On this page, the user can get information about 
+
+- On this page, the user can get information about 
   the parcel by entering the TTN number in the field or 
   by selecting from the history field.
-2.2 On submit, the correctness of entering the number is checked 
+- On submit, the correctness of entering the number is checked 
   (at the moment it should be just 14 digits). 
   And if the check fails, the user sees an error message and the request is not sent.
-2.3. If the number is entered in the correct format, a request is 
+- If the number is entered in the correct format, a request is 
   sent and the user sees information about his parcel 
   (status, information about the sender and recipient - address 
   and date or planned delivery date if the parcel is on the way).
-2.3.1 If the parcel number is not found in the Nova Poshta database, 
+  - If the parcel number is not found in the Nova Poshta database, 
   the user will also see this.
-2.4. The history of viewing parcels is saved by LocalStorage 
+- The history of viewing parcels is saved by LocalStorage 
   and is available even after a reloading the page.
-2.5. The numbers of the viewed parcels in the history are displayed 
+- The numbers of the viewed parcels in the history are displayed 
   in the order of viewing. The number that was viewed last will be 
   displayed at the top of the list.
-2.6. If the user clicks on any number in the history, 
+- If the user clicks on any number in the history, 
   a request with that number will be sent, the number will 
   move to the top of the list and be displayed in the input field.
-2.7. There is also a "clear history" button that clears the list 
+- There is also a "clear history" button that clears the list 
   of viewed TTN numbers and deletes information from LocalStorage.
 
 
