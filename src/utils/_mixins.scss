@@ -9,9 +9,3 @@
     @content;
   }
 }
-
-@mixin onDesktopXL() {
-  @media(min-width: 1170px) {
-    @content;
-  }
-}

@@ -3,6 +3,7 @@
 
 .getStatus {
   margin-bottom: 10px;
+
   &__form {
     display: flex;
     align-items: center;
@@ -11,6 +12,7 @@
   &__input {
     margin-right: 5px;
     padding: 2px 5px;
+    
     border-radius: 5px;
     border: 1px solid #9c9c98;
     outline: none;
