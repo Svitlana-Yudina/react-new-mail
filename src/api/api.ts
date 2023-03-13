@@ -19,6 +19,8 @@ export function request<T>(data: RequestInit): Promise<T> {
     });
 }
 
+// I use method POST because "Request with GET/HEAD method cannot have body."
+
 export function getAreas(): Promise<AreaData[]> {
   const options = { method: 'POST',
     body: JSON.stringify({
